@@ -1,14 +1,17 @@
 from flask import Flask, jsonify
 import os
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route("/api/videos/today", methods=["GET"])
 def get_videos_today():
 
     # Path:
-    data_file_path = os.path.join("notebooks", "videos.json")
+    data_file_path = os.path.join("DB", "videos.json")
     
     if not os.path.exists(data_file_path):
         return jsonify({"error": "No data available for today."}), 404
