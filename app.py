@@ -50,4 +50,5 @@ def index():
 
 if __name__ == "__main__":
     # Serve the app using Waitress
+    print("serving app")
     serve(app, host="0.0.0.0", port=5050)
