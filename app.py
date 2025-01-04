@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-handler = RotatingFileHandler('logs/myapp.log', maxBytes=1000000, backupCount=5)
+handler = RotatingFileHandler('logs/years-today.log', maxBytes=1000000, backupCount=5)
 formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
 handler.setFormatter(formatter)
 handler.setLevel(logging.INFO)
