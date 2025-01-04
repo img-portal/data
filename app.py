@@ -7,6 +7,7 @@ from waitress import serve  # Import Waitress
 app = Flask(__name__)
 CORS(app)
 
+
 """
 Get today's videos
 """
