@@ -23,7 +23,7 @@ def get_videos_today():
     with open(data_file_path, "r", encoding="utf-8") as f:
         videos_list = json.load(f)  # This will be a list of dictionaries
 
-    print("fetch daily vids")
+    print("fetch daily videos")
     
     # Wrap a dict
     return jsonify({"videos": videos_list})
