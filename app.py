@@ -36,7 +36,7 @@ def get_videos_today():
         videos_list = json.load(f)  # This will be a list of dictionaries
 
     print("fetch daily videos")
-    app.logger.info("Fetched daily videos")
+    app.logger.info("Fetched daily videosss")
     
     # Wrap a dict
     return jsonify({"videos": videos_list})
