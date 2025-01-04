@@ -4,9 +4,21 @@ import json
 from flask_cors import CORS
 from waitress import serve  # Import Waitress
 
+import logging
+from logging.handlers import RotatingFileHandler
+
 app = Flask(__name__)
 CORS(app)
 
+
+handler = RotatingFileHandler('logs/myapp.log', maxBytes=1000000, backupCount=5)
+formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
+handler.setFormatter(formatter)
+handler.setLevel(logging.INFO)
+app.logger.addHandler(handler)
+
+app.logger.setLevel(logging.INFO)
+app.logger.info('MyApp startup')
 
 """
 Get today's videos
@@ -24,6 +36,7 @@ def get_videos_today():
         videos_list = json.load(f)  # This will be a list of dictionaries
 
     print("fetch daily videos")
+    app.logger.info("Fetched daily videos")
     
     # Wrap a dict
     return jsonify({"videos": videos_list})
@@ -44,6 +57,7 @@ def get_videos_archive():
         videos_list = json.load(f)  # This will be a list of dictionaries
 
     print("fetch archive vids")
+    app.logger.info("Fetched archive videos")
     
     # Wrap a dict
     return jsonify({"videos": videos_list})
