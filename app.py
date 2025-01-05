@@ -22,7 +22,7 @@ app.logger.info('years.today startup')
 
 # ---- AWS stuff 
 from botocore.exceptions import ClientError
-from datetime import datetime
+from datetime import datetime, timezone
 import boto3
 from boto3.dynamodb.conditions import Key
 from boto3.dynamodb.conditions import Attr
@@ -97,7 +97,7 @@ Get archive videos
 def get_videos_today_test():
     try:
         # 1. Determine today's month and day in UTC
-        today = datetime.utcnow()
+        today = datetime.now(timezone.utc)
         month_day = today.strftime('%m-%d')  # Format: 'MM-DD'
 
         # Tests:
