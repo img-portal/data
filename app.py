@@ -101,9 +101,9 @@ def get_videos_today_test():
         month_day = today.strftime('%m-%d')  # Format: 'MM-DD'
 
         # Tests:
-        print(type(month_day))
-        print(month_day)
-        month_day = '11-11'
+        # print(type(month_day))
+        # print(month_day)
+        # month_day = '11-11'
 
 
         app.logger.info(f"Fetching videos for month-day: {month_day}")
